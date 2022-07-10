@@ -1,0 +1,13 @@
+<template>
+  <template if:true={processing}>
+    <lightning-spinner size="small"></lightning-spinner>
+  </template>
+  <template if:false={processing}>
+    <template if:true={errMsg}>
+      <h2 style="color: red">{errMsg}</h2>
+    </template>
+    <template if:false={errMsg}>
+      <h2>File uploaded successfully</h2>
+    </template>
+  </template>
+</template>

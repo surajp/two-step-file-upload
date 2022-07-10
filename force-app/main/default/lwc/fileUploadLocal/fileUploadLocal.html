@@ -1,0 +1,45 @@
+<template>
+  <div class="slds-form-element">
+    <span class="slds-form-element__label" id="file-selector-primary-label-101"
+      >Attachment</span
+    >
+    <template if:true={fileName}>
+      <span
+        class="slds-form-element__label slds-text-color_success slds-text-title_bold"
+        id="file-selector-primary-label-103"
+        >{fileName}</span
+      >
+    </template>
+    <div class="slds-form-element__control">
+      <div class="slds-file-selector slds-file-selector_files">
+        <div class="slds-file-selector__dropzone">
+          <input
+            type="file"
+            onchange={handleUpload}
+            class="file slds-file-selector__input slds-assistive-text"
+            id="file-upload-input-107"
+            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102"
+          />
+          <label
+            class="slds-file-selector__body"
+            for="file-upload-input-107"
+            id="file-selector-secondary-label102"
+          >
+            <span
+              class="slds-file-selector__button slds-button slds-button_neutral"
+            >
+              <lightning-icon
+                icon-name="utility:upload"
+                size="small"
+              ></lightning-icon>
+              Upload Files</span
+            >
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <template if:true={errMsg}>
+    <h2 style="color: red">{errMsg}</h2>
+  </template>
+</template>
