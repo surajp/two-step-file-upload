@@ -11,7 +11,7 @@ This repository contains an LWC called `fileUploadLocal` and an Aura Local Actio
 ### Uploading files locally
 
 The first lwc may be used to upload files "locally" and store the contents within a flow variable or your browser's `localStorage`. Storing within a flow variable allows the user to pause the flow and resume later without losing the file contents. However, depending on the size of the file, this can slow down your flow quite a bit.
-Using `localStorage` on the other hand makes the flow go much faster. However, if the flow is paused, there is no guarantee that the file contents may be, and most likely will be, lost.
+Using `localStorage` on the other hand makes the flow go much faster. However, if the flow is paused, the file contents may be, and most likely will be, lost.
 
 ### Uploading files to Salesforce
 
