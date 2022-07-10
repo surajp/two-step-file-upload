@@ -1,6 +1,7 @@
 <template>
   <template if:true={processing}>
     <lightning-spinner size="small"></lightning-spinner>
+    <h2>File upload in progress..</h2>
   </template>
   <template if:false={processing}>
     <template if:true={errMsg}>

@@ -50,13 +50,13 @@ export default class FileUploadSF extends LightningElement {
         Description: "Uploaded from Flow File Uploader"
       };
       if (this.recordId) fileData.FirstPublishLocationId = this.recordId;
-      this.clearLocalStorage();
       const payload = { apiName: "ContentVersion", fields: fileData };
       this.processing = true;
       const resp = await createRecord(payload);
       if (resp.error) {
         throw Error(resp.error.body.message);
       }
+      this.clearLocalStorage();
       if (this.autoAdvance) {
         this.handleGoNext();
       }
