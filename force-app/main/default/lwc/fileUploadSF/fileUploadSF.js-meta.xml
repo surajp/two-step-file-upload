@@ -11,6 +11,7 @@
       	<property name="fileContents" type="string" default="" label="File Contents (base 64 string)" role="inputOnly" />
       	<property name="fileId" type="string" default="" label="Unique identifier to retrieve file from local storage" role="inputOnly"/>
       	<property name="recordId" type="string" default="" label="Id of the record to which the file should be uploaded" role="inputOnly"/>
+      	<property name="autoAdvance" type="boolean" default="false" label="Set this to true to automatically advance to the next screen or finish the flow after the file is uploaded successfully" role="inputOnly"/>
       </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

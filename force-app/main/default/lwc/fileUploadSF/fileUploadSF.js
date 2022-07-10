@@ -1,5 +1,8 @@
 import { LightningElement, api } from "lwc";
-import { FlowNavigationNextEvent } from "lightning/flowSupport";
+import {
+  FlowNavigationNextEvent,
+  FlowNavigationFinishEvent
+} from "lightning/flowSupport";
 import { createRecord } from "lightning/uiRecordApi";
 import reduceErrors from "./reduceErrors.js";
 
@@ -20,6 +23,9 @@ export default class FileUploadSF extends LightningElement {
 
   @api
   availableActions = [];
+
+  @api
+  autoAdvance = false;
 
   processing = false;
 
@@ -51,6 +57,9 @@ export default class FileUploadSF extends LightningElement {
       if (resp.error) {
         throw Error(resp.error.body.message);
       }
+      if (this.autoAdvance) {
+        this.handleGoNext();
+      }
     } catch (err) {
       console.error("An error occured ", err);
       this.errMsg = reduceErrors(err).join("\n");
@@ -65,6 +74,10 @@ export default class FileUploadSF extends LightningElement {
       // navigate to the next screen
       const navigateNextEvent = new FlowNavigationNextEvent();
       this.dispatchEvent(navigateNextEvent);
+    } else if (this.availableActions.find((action) => action === "FINISH")) {
+      // navigate to the next screen
+      const navigateFinishEvent = new FlowNavigationFinishEvent();
+      this.dispatchEvent(navigateFinishEvent);
     }
   }
 }
