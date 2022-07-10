@@ -8,7 +8,6 @@
         : component.get("v.fileContents");
       const recordId = component.get("v.recordId");
       const fileName = component.get("v.fileName");
-      const fileFields = {};
       component.set("v.fileFields.Title", fileName);
       component.set("v.fileFields.PathOnClient", fileName);
       component.set("v.fileFields.VersionData", fileContents);
