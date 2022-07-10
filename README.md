@@ -6,7 +6,7 @@ Salesforce provides `lighting-file-upload` and flow screen elements for uploadin
 
 ## Contents
 
-This repository contains 2 LWCs `fileUploadLocal` and `fileUploadSF` which make uploading a file a two-step process.
+This repository contains an LWC called `fileUploadLocal` and an Aura Local Action called `fileUploadServer` which make uploading a file a two-step process.
 
 ### Uploading files locally
 
@@ -15,13 +15,13 @@ Using `localStorage` on the other hand makes the flow go much faster. However, i
 
 ### Uploading files to Salesforce
 
-The second LWC (`fileUploadSF`) uploads the file to Salesforce as a new `ContentDocument`. You can, optionally, specify the record Id of the file's parent record. You may also choose to automatically advance to the next step after the file upload is complete.
+The aura local action (`fileUploadServer`) uploads the file to Salesforce as a new `ContentDocument`. You can, optionally, specify the record Id of the file's parent record. You may also choose to automatically advance to the next step after the file upload is complete.
 
 ## Benefits
 
-Since this, essentially, makes file upload to a 2-step process, if the flow errors out or user closes their browser, you aren't left with lingering irrelevant files in your org that needs cleaned up. You can also add the file upload component to the record creation screen and then down the line use `fileUploadSF` to upload the file to your org and specify the record id of the new record. This eliminates a separate step of creating a `ContentDocumentLink`.
+Since this, essentially, makes file upload to a 2-step process, if the flow errors out or user closes their browser, you aren't left with lingering irrelevant files in your org that needs cleaned up. You can also add the file upload component to the record creation screen and then down the line use `fileUploadServer` to upload the file to your org and specify the record id of the new record. This eliminates a separate step of creating a `ContentDocumentLink`.
 
 ## Note
 
-- The maximum size of files that can be uploaded is a little over 2MB due to the character limit of size of a single request to an Aura controller. For this reason, the maximum file size limit for this component has been set to 2.2 MB
+- The maximum size of files that can be uploaded is a little over 2MB due to the character limit of size of a single request to an `@AuraEnabled` Apex method. For this reason, the maximum file size limit for this component has been set to 2.2 MB
 - Currently, multiple file uploads are not supported.

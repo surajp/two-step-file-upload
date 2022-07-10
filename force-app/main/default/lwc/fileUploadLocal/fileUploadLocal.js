@@ -1,6 +1,7 @@
 import { LightningElement, api } from "lwc";
 import { FlowAttributeChangeEvent } from "lightning/flowSupport";
 
+const MAX_FILE_SIZE_MB = 2.2;
 export default class FileUploadLocal extends LightningElement {
   _fileContents = "";
   _fileName = "";
@@ -73,8 +74,8 @@ export default class FileUploadLocal extends LightningElement {
   }
 
   validateSize(size) {
-    if ((size / 1024 / 1024).toFixed(1) > 2.2) {
-      this.errMsg = "Only files upto 2MB in size are supported";
+    if ((size / 1024 / 1024).toFixed(1) > MAX_FILE_SIZE_MB) {
+      this.errMsg = `Only files upto ${MAX_FILE_SIZE_MB} MB in size are supported`;
       return false;
     }
     return true;
