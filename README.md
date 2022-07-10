@@ -15,7 +15,7 @@ Using `localStorage` on the other hand makes the flow go much faster. However, i
 
 ### Uploading files to Salesforce
 
-The second LWC (`fileUploadSF`) uploads the file to Salesforce as a new `ContentDocument`. You can, optionally, specify the record Id of the file's parent record.
+The second LWC (`fileUploadSF`) uploads the file to Salesforce as a new `ContentDocument`. You can, optionally, specify the record Id of the file's parent record. You may also choose to automatically advance to the next step after the file upload is complete.
 
 ## Benefits
 
