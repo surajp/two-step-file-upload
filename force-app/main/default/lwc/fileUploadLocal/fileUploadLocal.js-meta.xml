@@ -11,7 +11,6 @@
       	<property name="fileContents" type="string" default="" label="File Contents" description="File Contents in base64 string format" role="outputOnly"/>
       	<property name="fileName" type="string" default="" label="File Name" description="File Name of the uploaded file" role="outputOnly"/>
       	<property name="fileId" type="string" default="" label="Unique identifier to retrieve file from local storage" role="outputOnly"/>
-      	<property name="fileUId" type="string" default="" label="Unique identifier to retrieve file from local storage" role="outputOnly"/>
       	<property name="useLocalStorage" type="boolean" default="false" label="Use Local Storage" role="inputOnly" description="Store the file contents in local storage instead of flow variable for better performance. However, if the flow is paused the file may be lost"/>
       </targetConfig>
     </targetConfigs>

@@ -17,11 +17,6 @@ export default class FileUploadLocal extends LightningElement {
   }
 
   @api
-  get fileUId() {
-    return this._fileId;
-  }
-
-  @api
   get fileContents() {
     return this._fileContents;
   }

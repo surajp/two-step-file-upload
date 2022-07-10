@@ -1,6 +1,7 @@
 import { LightningElement, api } from "lwc";
 import { FlowNavigationNextEvent } from "lightning/flowSupport";
 import { createRecord } from "lightning/uiRecordApi";
+import reduceErrors from "./reduceErrors.js";
 
 export default class FileUploadSF extends LightningElement {
   @api
@@ -52,7 +53,7 @@ export default class FileUploadSF extends LightningElement {
       }
     } catch (err) {
       console.error("An error occured ", err);
-      this.errMsg = err.message || err.body.message;
+      this.errMsg = reduceErrors(err).join("\n");
     } finally {
       this.processing = false;
     }
